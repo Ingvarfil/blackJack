@@ -1,2 +1,2 @@
-# blackJack
+# BlackJack
 Black Jack ruby
