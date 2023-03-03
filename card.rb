@@ -8,5 +8,14 @@ class Card
     @value = value
     @suit = suit
   end
-  
+
+  def ace?
+    value == 'A'
+  end
+
+  def point_card
+    return value if value.is_a?(Integer)
+    return 10 if ["J", "Q", "K"].include?(value)
+    return 11 if value == 'A'
+  end
 end
