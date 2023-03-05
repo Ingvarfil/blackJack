@@ -4,14 +4,14 @@ class Person
 
   def initialize
     @money = 100
-    @hand
+    @hand = Hand.new
   end
 
-  def take_card
-    
+  def take_card(card)
+    @hand.cards << card
   end
 
   def show_money
-
+    money.to_s
   end
 end
