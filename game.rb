@@ -1,3 +1,10 @@
+require_relative 'card'
+require_relative 'deck'
+require_relative 'person'
+require_relative 'interface'
+require_relative 'dealer'
+require_relative 'gamer'
+
 class Game
   def initialize
     @interface = Interface.new
