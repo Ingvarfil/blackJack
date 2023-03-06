@@ -1,10 +1,3 @@
-require_relative 'card'
-require_relative 'deck'
-require_relative 'person'
-require_relative 'interface'
-require_relative 'dealer'
-require_relative 'gamer'
-
 class Game
   def initialize
     @interface = Interface.new
@@ -104,15 +97,4 @@ class Game
   def validate_name
     raise 'Wrong name' if @gamer.name.nil? || @gamer.name.strip.empty?   
   end  
-end
-
-game = Game.new
-
-loop do
-  game.start
-  game.distribution
-  game.bet
-  game.gamer_action
-  game.result
-  game.end_game   
 end
