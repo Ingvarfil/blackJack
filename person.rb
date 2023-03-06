@@ -1,3 +1,5 @@
+require_relative 'hand'
+
 class Person
   attr_accessor :money
   attr_reader :hand, :name

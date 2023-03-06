@@ -1,3 +1,5 @@
+require_relative 'person'
+require_relative 'hand'
 require_relative 'card'
 
 class Deck
@@ -17,7 +19,7 @@ class Deck
     @deck.shuffle!  
   end
 
-  def give_a_casd
+  def give_a_card
     @deck.pop
   end  
 end

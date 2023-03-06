@@ -18,18 +18,6 @@ class Game
     retry    
   end
 
-  game = Game.new
-
-  loop do
-    game.start
-    game.distribution
-    game.bet
-    game.gamer_action
-    game.result
-    game.end_game
-    
-  end
-
   def start
     @deck = Deck.new
     @gamer.hand.cards = []
@@ -115,6 +103,16 @@ class Game
   
   def validate_name
     raise 'Wrong name' if @gamer.name.nil? || @gamer.name.strip.empty?   
-  end
-  
+  end  
+end
+
+game = Game.new
+
+loop do
+  game.start
+  game.distribution
+  game.bet
+  game.gamer_action
+  game.result
+  game.end_game   
 end

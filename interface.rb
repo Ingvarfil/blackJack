@@ -1,4 +1,5 @@
 class Interface
+  attr_reader :input
 
   def ask_name
     puts '==== BlackJack game ===='
@@ -16,7 +17,7 @@ class Interface
     puts '1.Take card 2.Show cards 3.Skip turn'
     @input = gets.to_i
     variants = [1, 2, 3]
-    raise 'Wrong input!' unless variants.include?(input)
+    raise 'Wrong input!' unless variants.include?(@input)
   end
 
   def lose

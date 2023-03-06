@@ -23,7 +23,8 @@ class Hand
     @score
   end
 
-  def swow_cards
+  def show_cards
+    @cards.map { |card| "#{card.value}#{card.suit}" }.join(' ')
   end
   
 end
