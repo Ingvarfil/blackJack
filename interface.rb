@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Interface
   attr_reader :input
 
   def ask_name
     puts '==== BlackJack game ===='
-    print 'Hi! Enter yor name: '  
+    print 'Hi! Enter yor name: '
   end
 
   def show_desk(name, cards, points, money)
@@ -40,9 +42,9 @@ class Interface
   def exit_game
     puts 'Want to go out? (Y/N)'
     input = gets.chomp.upcase
-    answers = ['Y', 'N']
+    answers = %w[Y N]
     raise 'Wrong entry!' unless answers.include?(input)
+
     exit if input == 'Y'
   end
- 
 end

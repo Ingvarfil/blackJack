@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game
   def initialize
     @interface = Interface.new
@@ -8,13 +10,13 @@ class Game
     validate_name
   rescue StandardError => e
     puts e.message
-    retry    
+    retry
   end
 
   def start
     @deck = Deck.new
     @gamer.hand.cards = []
-    @dealer.hand.cards = []    
+    @dealer.hand.cards = []
   end
 
   def distribution
@@ -93,8 +95,8 @@ class Game
     @gamer.money += 10
     @interface.draw
   end
-  
+
   def validate_name
-    raise 'Wrong name' if @gamer.name.nil? || @gamer.name.strip.empty?   
-  end  
+    raise 'Wrong name' if @gamer.name.nil? || @gamer.name.strip.empty?
+  end
 end

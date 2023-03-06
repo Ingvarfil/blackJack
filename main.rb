@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'card'
 require_relative 'deck'
 require_relative 'person'
@@ -14,5 +16,5 @@ loop do
   game.bet
   game.gamer_action
   game.result
-  game.end_game   
+  game.end_game
 end

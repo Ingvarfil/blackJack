@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'person'
 
 class Gamer < Person
@@ -10,5 +12,5 @@ class Gamer < Person
 
   def show_name
     name.to_s
-  end  
+  end
 end

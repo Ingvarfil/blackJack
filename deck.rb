@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'card'
 
 class Deck
@@ -14,10 +16,10 @@ class Deck
         @deck << Card.new(value, suit)
       end
     end
-    @deck.shuffle!  
+    @deck.shuffle!
   end
 
   def give_a_card
     @deck.pop
-  end  
+  end
 end

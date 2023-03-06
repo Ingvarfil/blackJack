@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Hand
   attr_accessor :cards
   attr_reader :score
-  
+
   def initialize
     @cards = []
   end
@@ -26,5 +28,4 @@ class Hand
   def show_cards
     @cards.map { |card| "#{card.value}#{card.suit}" }.join(' ')
   end
-  
 end

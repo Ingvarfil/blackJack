@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Card
-  SUITS = ['♠', '♥', '♣', '♦']
-  VALUES = [2, 3, 4, 5, 6, 7, 8, 10, 'J', 'Q', 'K', 'A']
+  SUITS = ['♠', '♥', '♣', '♦'].freeze
+  VALUES = [2, 3, 4, 5, 6, 7, 8, 10, 'J', 'Q', 'K', 'A'].freeze
 
   attr_reader :value, :suit
 
@@ -15,7 +17,7 @@ class Card
 
   def point_card
     return value if value.is_a?(Integer)
-    return 10 if ["J", "Q", "K"].include?(value)
+    return 10 if %w[J Q K].include?(value)
     return 11 if value == 'A'
   end
 end
