@@ -3,11 +3,12 @@
 require_relative 'hand'
 
 class Person
+  MONEY = 100
   attr_accessor :money
   attr_reader :hand, :name
 
   def initialize
-    @money = 100
+    @money = MONEY
     @hand = Hand.new
   end
 

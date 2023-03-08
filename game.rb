@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Game
+  BET = 10
+  MAX_SUM = 21
+  DEALER_MAX_SUM = 17
+  WINING_MONEY = 20
+  DRAW_MONEY = 10
+
   def initialize
     @interface = Interface.new
     @gamer = Gamer.new
@@ -29,19 +35,19 @@ class Game
   end
 
   def bet
-    @gamer.money -= 10
-    @dealer.money -= 10
+    @gamer.money -= BET
+    @dealer.money -= BET
     @interface.show_desk(@gamer.show_name, @gamer.hand.show_cards, @gamer.hand.score, @gamer.show_money)
     @interface.show_desk('Dealer', '***', '***', @dealer.show_money)
   end
 
   def result
-    draw if @gamer.hand.score > 21 && @dealer.hand.score > 21
+    draw if @gamer.hand.score > MAX_SUM && @dealer.hand.score > MAX_SUM
     draw if @gamer.hand.score == @dealer.hand.score
-    win if @gamer.hand.score > @dealer.hand.score && @gamer.hand.score <= 21
-    win if @dealer.hand.score > 21 && @gamer.hand.score <= 21
-    lose if @gamer.hand.score > 21 && @dealer.hand.score <= 21
-    lose if @dealer.hand.score > @gamer.hand.score && @dealer.hand.score <= 21
+    win if @gamer.hand.score > @dealer.hand.score && @gamer.hand.score <= MAX_SUM
+    win if @dealer.hand.score > MAX_SUM && @gamer.hand.score <= MAX_SUM
+    lose if @gamer.hand.score > MAX_SUM && @dealer.hand.score <= MAX_SUM
+    lose if @dealer.hand.score > @gamer.hand.score && @dealer.hand.score <= MAX_SUM
     desk
   end
 
@@ -58,7 +64,7 @@ class Game
   end
 
   def dealer_action
-    if @dealer.hand.score >= 17 || @interface.input == 2
+    if @dealer.hand.score >= DEALER_MAX_SUM || @interface.input == 2
       nil
     else
       @dealer.take_card(@deck.give_a_card)
@@ -81,18 +87,18 @@ class Game
   end
 
   def lose
-    @dealer.money += 20
+    @dealer.money += WINING_MONEY
     @interface.lose
   end
 
   def win
-    @gamer.money += 20
+    @gamer.money += WINING_MONEY
     @interface.win
   end
 
   def draw
-    @dealer.money += 10
-    @gamer.money += 10
+    @dealer.money += DRAW_MONEY
+    @gamer.money += DRAW_MONEY
     @interface.draw
   end
 

@@ -4,6 +4,9 @@ class Hand
   attr_accessor :cards
   attr_reader :score
 
+  POINTS_COUNT_A = 10
+  MAX_SUM = 21
+
   def initialize
     @cards = []
   end
@@ -11,15 +14,15 @@ class Hand
   def points
     @score = @cards.map(&:point_card).sum
     aces_count = @cards.select(&:ace?).count
-    if @score > 21
+    if @score > MAX_SUM
       case aces_count
       when 1
-        @score -= 10
+        @score -= POINTS_COUNT_A
       when 2
-        @score -= 10
-        @score -= 10 if @score > 21
+        @score -= POINTS_COUNT_A
+        @score -= POINTS_COUNT_A if @score > MAX_SUM
       when 3
-        2.times { @score -= 10 }
+        2.times { @score -= POINTS_COUNT_A }
       end
     end
     @score
